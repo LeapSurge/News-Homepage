@@ -1,3 +1,8 @@
+/* This design follows the "Mobile First" principle, 
+where mobile styles are defined in the base CSS while 
+desktop styles are added later through media queries. */
+
+/* Generic settings */
 * {
   margin: 0;
   box-sizing: border-box;
@@ -24,6 +29,10 @@ a {
 .title {
   font-family: "Inter ExtraBold";
 }
+
+/** Style for captions */
+/* Captions are titles for decoration in different area, */
+/* such as the "New" in sidebar and the colored number in footer. */
 .caption {
   font-family: "Inter";
   font-weight: bold;
@@ -45,6 +54,9 @@ p {
   line-height: 1.75;
 }
 
+/** Styles for different parts */
+/* 1. for the header */
+
 header {
   display: flex;
   align-items: center;
@@ -65,6 +77,8 @@ nav a:hover {
   color: var(--soft-red);
 }
 
+/** Styles for different parts */
+/* 2. for the article */
 article .img-container {
   width: 100%;
   aspect-ratio: 4/3;
@@ -93,6 +107,8 @@ h1 {
   color: var(--off-white);
 }
 
+/** Styles for different parts */
+/* 3. for the sidebar */
 .sidebar {
   background: var(--very-dark-blue);
   padding: 1.5rem;
@@ -122,6 +138,8 @@ h1 {
   color: var(--off-white);
 }
 
+/** Styles for different parts */
+/* 4. for the footer, the card area */
 .card {
   margin-block: 2em;
   display: grid;
@@ -130,7 +148,6 @@ h1 {
     "img title"
     "img content";
   grid-template-columns: 6.5rem 1fr;
-  /* grid-template-rows: ; */
   column-gap: 1.5em;
 }
 .card-img {
@@ -153,12 +170,19 @@ h1 {
   grid-area: content;
 }
 
+/** The Following part is for media query */
+/*? I was wondering if a 2 columns layout in the middle would be better */
+/*? The layout in one column will be weird in middle width,            */
+/*? while the footer part is in a mess if change it to the three column. */
+
 @media screen and (min-width: 768px) {
+  /* generic part */
   body {
     margin-block: 8vw;
     margin-inline: 10vw;
   }
 
+  /* header part */
   nav .nav-menu-icon {
     display: none;
   }
@@ -167,39 +191,53 @@ h1 {
     gap: 2em;
   }
 
+  /* Main Part */
+  /* -------------- */
   main {
     display: grid;
     margin-block: 3rem;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2.5rem;
   }
+
+  /* Main Part */
+  /* 1. article */
   article {
     grid-column: span 2;
     display: grid;
     grid-template-columns: subgrid;
     row-gap: 2rem;
   }
+
   article > .img-container {
     grid-column: span 2;
     aspect-ratio: 1460/600;
     background-image: url(assets/images/image-web-3-desktop.jpg);
   }
+
   h1 {
     font-size: 3.5rem;
     margin: 0;
   }
+
   .button a {
     margin-block-end: 0;
   }
+
   .article-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
+
+  /* Main Part */
+  /* 2. sidebar */
   .sidebar {
     margin: 0;
   }
 
+  /* Main Part */
+  /* 3. footer */
   footer {
     grid-column: span 3;
     display: grid;
