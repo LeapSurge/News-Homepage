@@ -48,8 +48,7 @@ Users should be able to:
 ### What I learned
 
 ### Continued development
-
-The breadcrumb style navigation bar in mobile.
+two columns layout
 
 ### Useful resources
 

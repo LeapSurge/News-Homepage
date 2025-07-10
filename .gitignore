@@ -2,6 +2,7 @@
 *.sketch
 *.fig
 *.xd
+README-guide.md
 
 # Dependencies
 /node_modules
